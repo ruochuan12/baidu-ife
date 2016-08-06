@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IFE-37-Modal</title>
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <style>
+  body{
+    background-color: #aaa;
+  }
+  .u-trigger{
+    display: block;
+    width: 180px;
+    height: 32px;
+    font-size: 16px;
+    margin: 60px auto;
+  }
+  </style>
+</head>
+<body>
+
+
+ 
+<!-- <div class="m-modal">
+  <div class="modal_align"></div>
+  <div class="modal_wrap">
+    <div class="modal_head">标题</div>
+    <div class="modal_body">内容</div>
+    <div class="modal_foot">
+      <a class='confirm' href='#'>确认</a>
+      <a class='cancel' href='#'>取消</a>
+    </div>
+  </div>
+</div>
+ -->  
+
+<button class='u-trigger' >Click me,show modal</button>
+
+<script src='js/animate.js'></script>
+<script src='js/modal.js'></script>
+<script>
+
+
+
+
+
+var modal = new Modal({
+  // 1. 内容配置
+  cotent: "内容在此", //可传入节点和字符串
+  // 2. 动画设置
+  animation: {
+    enter: 'bounceIn',
+    leave: 'bounceOut'
+  }
+  // // 3. confirm回调
+  // onConfirm: function(){
+  //   console.log('ok')
+  // },
+  // // 4. cancel回调
+  // onCancel: function(){
+  //   console.log('cancel')
+  // }
+})
+
+
+modal.on('confirm', function(){
+  console.log('confirm')
+})
+modal.on('cancel', function(){
+  console.log('cancel')
+})
+
+
+document.querySelector('.u-trigger').addEventListener('click', function(){
+  modal.show("<h3>modal弹窗内容</h3");
+
+})
+</script>
+</body>
+</html>

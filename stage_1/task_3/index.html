@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>baidu_ife_task_3,三栏布局</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing:border-box;
+	}
+	.clearfix::after{
+		content: ".";
+		display: block;
+		clear: both;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+	}
+	.clearfix{
+		zoom: 1;
+	}
+	.allWrap{
+		width: 100%;
+		padding: 20px;
+		border: 1px solid #999;
+		height: auto;
+		background: #eee;
+		min-width: 660px;
+	}
+	.centerWrap{
+	  float: left;
+	  width:100%;
+	}
+	.left{
+	  float: left;
+	  width: 200px;
+	  margin-left: -100%;
+	  padding: 20px;
+	  background:#FFF;
+	  border: 1px solid #999;
+	}
+	
+	.left img{
+		width: 80px;
+		height: 80px;
+		float: left;
+		display: inline-block;
+	}
+	.left p{
+		float: left;
+		font-size: 12px;
+		text-overflow: ellipsis;
+		white-space:nowrap;
+		overflow: hidden;
+	}
+	.right{
+	  float: left;
+	  width: 120px;
+	  margin-left: -120px;
+	  padding: 20px;
+	  background:#FFF;
+	  border: 1px solid #999;
+	}
+	.right img{
+		width: 80px;
+		height: 80px;
+	}
+	.right img+img{
+		margin-top: 20px;
+	}
+	.center{
+	  margin: 0 140px 0 220px;
+	  padding: 20px;
+	  height: auto;
+	  background:#FFF;
+	  border: 1px solid #999;
+	  min-width: 260px;
+	}
+	</style>
+</head>
+<body>
+<div class="allWrap clearfix">
+	<div class="centerWrap">
+		<div class="center">
+			<p>　　<a href="http://lxchuan12.github.io" target="_blank">团队首页</a>　　团队名称：学霸咚霸chua，在校生团队。由来自苏州大学，景德镇陶瓷大学大四学生和浙江大学研二学生组成。其中苏州大学的同学个人描述：半年实习经验，用过jquery，react，avalon，gulp ，懂点node，html，css还行，js也不错。github：地址+Hokkaidounny。景德镇陶瓷大学的同学个人描述：有Web前端开发，和别人协作的项目经验，熟悉PS切图，HTML，CSS，JavaScript，git工具，jquery库，seajs模块化开发，能解决兼容性问题。github:github.com/lxchuan12。</p>
+		</div>
+	</div>
+	<div class="left clearfix">
+		<img src="img/task_3_imgLogo.jpg" alt="团队logo">
+		<p>学霸咚霸chua</p>
+	</div>
+	<div class="right">
+		<img src="img/task_3_imgLogo.jpg" alt="个人logo">
+		<img src="img/task_3_imgLogo.jpg" alt="个人logo">
+		<img src="img/task_3_imgLogo.jpg" alt="个人logo">
+		<img src="img/task_3_imgLogo.jpg" alt="个人logo">
+		<img src="img/task_3_imgLogo.jpg" alt="个人logo">
+	</div>
+</div>
+</body>
+</html>

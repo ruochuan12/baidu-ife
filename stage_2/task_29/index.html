@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IFE-29-表单验证-正则表达式</title>
+    <meta charset="utf-8"/>
+    <style>
+    body{
+        font-family: "Microsoft Yahei";
+    }
+    .container{
+        width: 600px;
+        height: 200px;
+        margin: 100px auto;
+    }
+    #label1{
+        width: 600px;
+        height: 100px;
+    }
+    #name1{
+        width: 315px;
+        height: 45px;
+        border-radius: 8px;
+        border:1px solid #AEAEAE;
+    }
+    #label1 button{
+        width: 100px;
+        height: 45px;
+        background-color: #2F79BA;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 18px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <!-- <form class="demo" name="demoForm"> -->
+        <div id="label1">
+          <label for="name1">名称：</label>
+          <input id="name1" type="text" value="">
+          <button>验证</button>
+          <br>
+          　　　<span>必填，长度为4~16个字符</span>
+        </div>
+        <!-- </form> -->
+    </div>
+    <script>
+
+    var label1 = document.getElementById('label1');
+    var input = document.getElementById('name1');
+    var button = label1.getElementsByTagName('button')['0'];
+    var span = label1.getElementsByTagName('span')['0'];
+    var inputVal = input.value;
+
+    function validate(){
+        var value = input.value;
+        // 匹配中文、英文数字和特殊字符，奇怪：量词16无效
+        var reg = /(([\u4e00-\u9fa5])|(\w|[!-\/\:-@\[-`{-~])){4,16}/ig;
+
+        if(value.length==0){
+            span.innerHTML="姓名不能为空";
+            span.style.color="#DE000F";
+            input.style.border = "1px solid #DE000F";
+            
+        }else if(reg.test(value)&&value.length<=16){
+            span.innerHTML="名称格式正确";
+            span.style.color="#61BA46";
+            input.style.border = "1px solid #61BA46";
+        }else{
+            span.innerHTML="必填，长度为4~16个字符";
+            span.style.color="#DE000F";
+            input.style.border = "1px solid #DE000F";
+        }
+
+    }
+    button.onclick=validate;
+    </script>
+  </body>
+</html>

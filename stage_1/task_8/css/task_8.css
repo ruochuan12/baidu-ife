@@ -1,0 +1,24 @@
+/* 清除浮动 */
+.clearfix::after{
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.clearfix{
+	zoom: 1;
+}
+*{
+	box-sizing:border-box;
+}
+.container-fuild{
+	background: #eee;
+	border: 1px solid #999;
+}
+.col-sm-4{
+	border: 1px solid #999;
+	height: 50px;
+	background: #fff;
+}

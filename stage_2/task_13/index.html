@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 13</title>
+  </head>
+<body>
+
+  <label>请输入北京今天空气质量：<input id="aqi-input" type="text"></label>
+  <button id="button">确认填写</button>
+
+  <div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
+
+<script type="text/javascript">
+
+(function() {
+  /*	
+  在注释下方写下代码
+  给按钮button绑定一个点击事件
+  在事件处理函数中
+  获取aqi-input输入的值，并显示在aqi-display中
+  */
+ // 通过id获取节点
+  function $(id){
+    return document.getElementById(id);
+  }
+  // 事件绑定
+  function bind(obj, evname, fn) {
+    if (obj.addEventListener) {
+      obj.addEventListener(evname, fn, false);
+    } else {
+      obj.attachEvent('on' + evname, function() {
+        fn.call(obj);
+      });
+    }
+  }
+
+ bind($('button'),'click',function(){
+  // textContent：是W3C标准
+  // innerText：IE早期的标准，chrome实现了，但火狐不支持。
+  // innerHTML：相对万能，但不安全。
+  // $('aqi-display').innerHTML=$('aqi-input').value;
+  
+  // innerText和textContent兼容
+	if($('aqi-display').innerText){
+      return $('aqi-display').innerText=$('aqi-input').value;
+    }else{
+      return $('aqi-display').textContent=$('aqi-input').value;
+    }
+  
+ })
+
+})();
+
+</script>
+</body>
+</html>
