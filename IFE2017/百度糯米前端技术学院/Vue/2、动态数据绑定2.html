@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>1、vue源码分析</title>
+	<title>2、动态数据绑定（二）</title>
 </head>
 <body>
-	<a href="http://ife.baidu.com/course/detail/id/15">
-动态数据绑定（一）</a>
+	<p><a href="http://ife.baidu.com/course/detail/id/20">
+动态数据绑定（二）</a></p>
 <p><a href="https://github.com/youngwind/blog/issues/84">参考链接:vue早期源码学习系列之一：如何监听一个对象的变化</a></p>
 	<code>
 	<pre>
@@ -71,14 +71,14 @@
 		}
 		// let app = Observer(data);
 		let app1 = new Observer({
-		  name: 'youngwind',
-		  age: 25
-		});
+		         name: 'youngwind',
+		         age: 25
+		 });
 
-		let app2 = new Observer({
-		  university: 'bupt',
-		  major: 'computer'
-		});
+		 app1.data.name = {
+		         lastName: 'liang',
+		         firstName: 'shaofeng'
+		 };
 	</script>
 </body>
 </html>
