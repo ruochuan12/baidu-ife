@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1、正则表达式入门</title>
+</head>
+<body>
+	<p><a href="http://ife.baidu.com/course/detail/id/29" target="_blank">
+正则表达式之入门</a></p>
+<h3>参考资料</h3>
+<p><a href="http://deerchao.net/tutorials/regex/regex-1.htm" target="_blank">正则表达式30分钟入门教程</a></p>
+<p><a href="http://ife.baidu.com/course/detail/id/29" target="_blank">了解JavaScript中正则表达式的基本知识</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match" target="_blank">String.prototype.match()</a></p>
+	<code>
+	<pre>
+	1、编写一个判断给定数字是否为手机号码的正则表达式，测试用例参照但不限于：
+	18812011232  // 测试结果应该为 true
+	18812312     // false
+	12345678909  // false
+	
+	2、编写一个判断输入的字符串是否有相邻重复单词的正则表达式，测试用例可以参考但不限于：
+	foo foo bar       // true
+	foo bar foo       // false  有重复单词但是不相邻
+	foo  barbar bar   // false
+	</pre>
+	</code>
+	<script>
+		// phone 一般来说第二位不做判断。说不定哪天第二位就是2了。
+		// 1、
+		var reg = /^1[3-9][\d]{9}$/g;
+		// var reg = /^1(3|4|5|8)d{9}$/g;
+		console.log(reg.test('18812011232'));  	// true
+		console.log(reg.test('18812312'));		// false
+		console.log(reg.test('12345678909'));	// false
+		console.log(reg.test('12aa5678909'));	// false
+
+		// 2、
+		console.log('aa buhui buihi        gyugyu'.match(/\w+\s+/));
+		// ["aa ", index: 0, input: "aa buhui buihi        gyugyu"]
+		console.log('aa buhui buihi        gyugyu'.match(/\w+\s+/g));
+		// ["aa ", "buhui ", "buihi        "]
+		console.log('foo foo bar'.split(/\s+/g));
+		// 2.1 split array方案
+		var same = function(str){
+			var arr = [];
+			arr =  str.split(/\s+/g);
+			for(var i = 0; i<arr.length; i++){
+				if(arr[i]===arr[i+1]){
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
+		console.log(same('foo foo bar')); // true
+		console.log(same('foo bar foo')); // false
+		console.log(same('foo  barbar bar')); // false
+
+		// 2.2 纯正则实现
+		var reg2 = /\b([a-zA-Z]+)\b\s+\b\1\b/g;
+		console.log(reg2.test('FOO FOO bar')); 	//true
+		console.log(reg2.test('foo bar foo')); 		// false
+		console.log(reg2.test('foo  barbar bar')); 		// false
+		/*
+		如果正则表达式没有 g 标志，则 str.match() 会返回和 RegExp.exec() 相同的结果。而且返回的 Array 拥有一个额外的 input 属性，该属性包含被解析的原始字符串。另外，还拥有一个 index 属性，该属性表示匹配结果在原字符串中的索引（以0开始）。
+
+		如果正则表达式包含 g 标志，则该方法返回一个 Array ，它包含所有匹配的子字符串而不是匹配对象。捕获组不会被返回。如果没有匹配到，则返回  null 。
+		 */
+	</script>
+</body>
+</html>

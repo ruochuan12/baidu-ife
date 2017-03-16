@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IFE-31-级联选择器</title>
+    <meta charset="utf-8"/>
+    <style>
+    .container{
+        width: 600px;
+        height: 200px;
+        margin: 100px auto;
+    }
+    .selectRadio{
+        height: 50px;
+    }
+    .demo select{
+        width:200px;
+        margin-right:10px;
+    }
+    #companyWrap{
+        display: none;
+    }
+    </style>
+  </head>
+  <body>
+    <div><a href="https://github.com/lxchuan12/baidu_ife_3">任务三十一：表单（三）联动</a><br>
+    <a href="https://lxchuan12.github.io/baidu_ife_3/stage_2/task_31/">查看DEMO</a>
+    </div>
+    <div class="container">
+        <form class="demo" name="demoForm">
+        <div class="selectRadio">
+            <input id="isStudent" name="orStudent" checked="checked" type="radio" value="在校生" >
+            <label for="isStudent">在校生</label>
+            <input id="notStudent" name="orStudent" type="radio" value="非在校生">
+            <label for="notStudent">非在校生</label>
+        </div>
+        <div id="selectMenu">
+          <label for="">学校</label>
+          <select name="chapter">
+            <option>请选择城市</option>
+          </select>
+          <select name="section">
+            <option>请选择学校</option>
+          </select>
+        </div>
+        <div id="companyWrap">
+            <label for="company">就业单位：</label>
+            <input id="company" type="text">
+        </div>
+        </form>
+    </div>
+    <script>
+        // 数据定义
+        var chapters = [ 
+            {text:'景德镇',value:'1'}, 
+            {text:'杭州',value:'2'},
+            {text:'上海',value:'3'},
+            {text:'广州',value:'4'}
+        ]; 
+        var sections = { 
+            1:[ 
+                {text:'景德镇陶瓷大学',value:'1.1'}
+            ], 
+            2:[ 
+                {text:'浙江大学',value:'2.1'}, 
+                {text:'杭州电子科技大学',value:'2.2'}, 
+                {text:'浙江工业大学',value:'2.3'},
+                {text:'浙江理工大学',value:'2.4'}
+            ],
+            3:[ 
+                {text:'复旦大学',value:'3.1'}, 
+                {text:'同济大学',value:'3.2'}, 
+                {text:'上海交通大学',value:'3.3'},
+                {text:'华东师范大学',value:'3.4'},
+                {text:'上海大学',value:'3.5'},
+                {text:'东华大学',value:'3.6'},
+                {text:'上海海洋大学',value:'3.7'}
+            ],
+            4:[ 
+                {text:'广州大学',value:'4.1'}, 
+                {text:'华南理工大学',value:'4.2'}, 
+                {text:'广东工业大学',value:'4.3'},
+                {text:'广东外语外贸大学',value:'4.4'},
+                {text:'中山大学',value:'4.5'},
+                {text:'广州中医药大学',value:'4.6'}
+            ]
+        }; 
+        var demoForm = document.forms.demoForm;
+        var isStudent = document.getElementById('isStudent');
+        var notStudent = document.getElementById('notStudent');
+        var selectMenu = document.getElementById('selectMenu');
+        var companyWrap = document.getElementById('companyWrap');
+        // 事件绑定
+        function addEvent(node,event,handler){
+            if (!!node.addEventListener){
+                node.addEventListener(event,handler,!1);
+            }else{
+                node.attachEvent('on'+event,handler);
+            }
+        }
+        // 填充选择器
+        function fillSelect(select,list){ 
+            for(var i=select.length-1;i>0;i--){ 
+                select.remove(i); 
+            }
+            for(var i=0,l=list.length,data;i<l;i++){
+                data = list[i];
+                var option = new Option(
+                    data.text,data.value
+                ); 
+                select.add(option); 
+            }
+        }
+
+        // 切换按钮
+        function changeRadio(){
+            if (isStudent.checked) {
+                selectMenu.style.display = 'block';
+                companyWrap.style.display = 'none';
+            }
+            if (notStudent.checked) {
+                selectMenu.style.display = 'none';
+                companyWrap.style.display = 'block';
+            }
+        }
+        addEvent(isStudent,'click',changeRadio);
+        addEvent(notStudent,'click',changeRadio);
+        // 切换城市
+        addEvent(
+            demoForm.chapter,
+            'change',function(event){
+                var value = demoForm.chapter.value, 
+                    list = sections[value]||[]; 
+                fillSelect(demoForm.section,list); 
+            }
+        );
+        fillSelect(demoForm.chapter,chapters);
+    </script>
+  </body>
+</html>
