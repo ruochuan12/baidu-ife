@@ -73,63 +73,63 @@
 			transform:rotate(360deg);
 		}
 	}
-	@keyframes left {
+	@keyframes top {
 		0% {
-            transform: rotate(45deg);
+            transform: rotate(90deg);
             transform-origin:bottom center;
         }
         25% {
-            transform: rotate(225deg);
+            transform: rotate(90deg);
             transform-origin:bottom center;
         }
         50% {
-            transform: rotate(225deg);
+            transform: rotate(270deg);
             transform-origin:bottom center;
             z-index: 3;
         }
         75% {
-            transform: rotate(-45deg);
+        	transform: rotate(270deg);
             transform-origin:bottom center;
             z-index: 3;
         }
         100% {
-            transform: rotate(-45deg);
+            transform: rotate(90deg);
             transform-origin:bottom center;
         }
 	}
-	@keyframes right {
+	@keyframes bottom {
 		0% {
-            transform: rotate(0deg);
+            transform: rotate(90deg);
             transform-origin:top center;
             z-index: 3;
         }
         25% {
-            transform: rotate(45deg);
+            transform: rotate(90deg);
             transform-origin:top center;
             z-index: 3;
         }
         25.001% {
-            transform: rotate(45deg);
+            transform: rotate(90deg);
             transform-origin:top center;
             z-index: 2;
         }
         50% {
-            transform: rotate(225deg);
+            transform: rotate(270deg);
             transform-origin:top center;
             z-index: 2;
         }
         75% {
-            transform: rotate(225deg);
+            transform: rotate(270deg);
             transform-origin:top center;
             z-index: 2;
         }
         75.001% {
-            transform: rotate(225deg);
+            transform: rotate(270deg);
             transform-origin:top center;
             z-index: 3;
         }
         100% {
-            transform: rotate(-45deg);
+            transform: rotate(90deg);
             transform-origin:top center;
             z-index: 3;
         }
@@ -137,11 +137,11 @@
 	.animate-ring{
 		animation: ring 2s linear infinite;
 	}
-	.animate-left{
-		animation: left 2s linear infinite;
+	.animate-top{
+		animation: top 2s linear infinite;
 	}
-	.animate-right{
-		animation: right 2s linear infinite;
+	.animate-bottom{
+		animation: bottom 2s linear infinite;
 	}
 	</style>
 </head>
@@ -149,8 +149,8 @@
 	<div class="container">
 		<div class="center ring animate-ring"></div>
 		<div class="center two-half-circle"></div>
-		<div class="center left-half-circle animate-left"></div>
-		<div class="center right-half-circle animate-right"></div>
+		<div class="center left-half-circle animate-top"></div>
+		<div class="center right-half-circle animate-bottom"></div>
 	</div>
 </body>
 </html>
