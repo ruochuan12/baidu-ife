@@ -4,6 +4,7 @@ import san from 'san';
 // console.log(App.template, 'template');
 // let myApp = new App();
 // myApp.attach(document.getElementById('app'));
+import styles from '../styles/index.css';
 
 var MyApp = san.defineComponent({
     template: `<ul><li san-for="item in list">{{item}}</li></ul>`,
@@ -13,3 +14,4 @@ var MyApp = san.defineComponent({
 });
 var myApp = new MyApp();
 myApp.attach(document.body);
+console.log('webpack-dev-server');
