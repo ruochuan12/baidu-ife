@@ -2,8 +2,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const FriendlyErrorsWebpackPlugin	=	require('friendly-errors-webpack-plugin');
 // 就在于会将打包到js里的css文件进行一个拆分，拆分CSS
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 module.exports = {
     entry: './src/js/main.js',
     output: {
@@ -12,23 +14,23 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.css$/,
-                // 从右向左解析
-                // use: ['style-loader', 'css-loader'] // 从右向左解析
-                // 这样写方便配置参数
-                use: [
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader'
-                    },
-                    {
-                        loader: 'postcss-loader'
-                    }
-                ]
-            },
+            // {
+            //     test: /\.css$/,
+            //     // 从右向左解析
+            //     // use: ['style-loader', 'css-loader'] // 从右向左解析
+            //     // 这样写方便配置参数
+            //     use: [
+            //         {
+            //             loader: 'style-loader'
+            //         },
+            //         {
+            //             loader: 'css-loader'
+            //         },
+            //         {
+            //             loader: 'postcss-loader'
+            //         }
+            //     ]
+            // },
             // {
             //     test: /\.css$/,
             //     // 从右向左解析
@@ -36,9 +38,33 @@ module.exports = {
             //     // 这样写方便配置参数
             //     use: ExtractTextWebpackPlugin.extract({
             //         // 将css用link的方式引入就不再需要style-loader了
-            //         use: 'css-loader'       
+            //         use: [
+            //             {
+            //                 loader: 'css-loader'
+            //             },
+            //             {
+            //                 loader: 'postcss-loader'
+            //             }
+            //         ]      
             //     })
             // },
+            {
+                test: /\.less$/,
+                use: ExtractTextWebpackPlugin.extract({
+                    // 将css用link的方式引入就不再需要style-loader了
+                    use: [
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader: 'less-loader'
+                        },
+                        {
+                            loader: 'postcss-loader'
+                        }
+                    ]      
+                })
+            },
             // {
             //     test: /\.(jpe?g|png|gif)$/,
             //     use: [
@@ -57,6 +83,15 @@ module.exports = {
                 include: /src/,          // 只转化src目录下的js
                 exclude: /node_modules/  // 排除掉node_modules，优化打包速度
             },
+            {
+				test: /\.(js|vue)$/,
+				loader: 'eslint-loader',
+				enforce: 'pre',
+				// include: [ resolve('src') ],
+				options: {
+					formatter: require('eslint-friendly-formatter'),
+				},
+			},
             // {
             //     test: /\.(htm|html)$/,
             //     use: 'html-withimg-loader'
@@ -65,10 +100,14 @@ module.exports = {
     },
     devServer: {
         contentBase: './dist',
-        host: 'localhost',      // 默认是localhost
+        host: '0.0.0.0',      // 默认是localhost
         port: 3000,             // 端口
-        open: true,             // 自动打开浏览器
-        hot: true               // 开启热更新
+        // open: true,             // 自动打开浏览器
+        hot: true,               // 开启热更新
+        overlay: {
+            errors: true,
+            warnings: true,
+        }
     },
     plugins: [
         new CleanWebpackPlugin('dist'),
@@ -79,8 +118,12 @@ module.exports = {
             template: './src/pages/index.html',
             hash: true, // 会在打包好的bundle.js后面加上hash串
         }),
+        // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoEmitOnErrorsPlugin(),
         // 拆分后会把css文件放到dist目录下的css/style.css
-        new ExtractTextWebpackPlugin('css/style.css')
+        new ExtractTextWebpackPlugin('css/style.css'),
+        new FriendlyErrorsWebpackPlugin()
     ],
-    mode: 'development'
+    mode: 'none'
 };

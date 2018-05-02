@@ -4,14 +4,15 @@ import san from 'san';
 // console.log(App.template, 'template');
 // let myApp = new App();
 // myApp.attach(document.getElementById('app'));
-import styles from '../styles/index.css';
+import '../styles/index.less';
 
 var MyApp = san.defineComponent({
-    template: `<ul><li san-for="item in list">{{item}}</li></ul>`,
-    attached: function () {
-        this.data.set('list', ['san', 'er', 'esui', 'etpl', 'esl']);
-    }
+  template: `<ul><li san-for="item in list">{{item}}</li></ul>`,
+  attached: function () {
+    this.data.set('list', ['san', 'er', 'esui', 'etpl', 'esl']);
+  }
 });
 var myApp = new MyApp();
 myApp.attach(document.body);
-console.log('webpack-dev-server');
+// console.log('webpack-dev-server');
+console.log('san-webpack');
