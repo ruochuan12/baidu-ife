@@ -20,30 +20,30 @@ lxchuan12.github.io/<br/>
 　　　　└── index.html<br/>
 <br/>
 ### 第一阶段
-###### [任务三：三栏式布局](http://ife.baidu.com/2016/task/detail?taskId=3)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/stage_1/task_3/index.html)　|　[查看demo](http://lxchuan12.github.io/stage_1/task_3/)
+###### [任务三：三栏式布局](http://ife.baidu.com/2016/task/detail?taskId=3)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/IFE2016/stage_1/task_3/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_1/task_3/)
 
-###### [任务十二：学习CSS 3的新特性](http://ife.baidu.com/2016/task/detail?taskId=12)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/stage_1/task_12/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_1/task_12/)
+###### [任务十二：学习CSS 3的新特性](http://ife.baidu.com/2016/task/detail?taskId=12)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/IFE2016/stage_1/task_12/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_1/task_12/)
 
 ***
 ### 第二阶段
 
-###### [任务十三：零基础JavaScript编码（一）](http://ife.baidu.com/2016/task/detail?taskId=13)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/stage_2/task_13/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_13/)
+###### [任务十三：零基础JavaScript编码（一）](http://ife.baidu.com/2016/task/detail?taskId=13)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/IFE2016/stage_2/task_13/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_13/)
 
 
-###### [任务十四：零基础JavaScript编码（二）](http://ife.baidu.com/2016/task/detail?taskId=14)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/stage_2/task_14/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_14/)
+###### [任务十四：零基础JavaScript编码（二）](http://ife.baidu.com/2016/task/detail?taskId=14)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/IFE2016/stage_2/task_14/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_14/)
 
-###### [任务十五：零基础JavaScript编码（三）](http://ife.baidu.com/2016/task/detail?taskId=15)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/stage_2/task_15/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_15/)
+###### [任务十五：零基础JavaScript编码（三）](http://ife.baidu.com/2016/task/detail?taskId=15)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/IFE2016/stage_2/task_15/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_15/)
 
-###### [任务十六：零基础JavaScript编码（四）](http://ife.baidu.com/2016/task/detail?taskId=16)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/stage_2/task_16/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_16/)
+###### [任务十六：零基础JavaScript编码（四）](http://ife.baidu.com/2016/task/detail?taskId=16)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/IFE2016/stage_2/task_16/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_16/)
 
-###### [任务十八：基础JavaScript练习（一）](http://ife.baidu.com/2016/task/detail?taskId=18)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/stage_2/task_18/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_18/)
+###### [任务十八：基础JavaScript练习（一）](http://ife.baidu.com/2016/task/detail?taskId=18)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/IFE2016/stage_2/task_18/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_18/)
 
-###### [任务二十九：表单（一）单个表单项的检验](http://ife.baidu.com/2016/task/detail?taskId=29)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/stage_2/task_29/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_29/)
+###### [任务二十九：表单（一）单个表单项的检验](http://ife.baidu.com/2016/task/detail?taskId=29)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/IFE2016/stage_2/task_29/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_29/)
 
-###### [任务三十一：表单（三）联动](http://ife.baidu.com/2016/task/detail?taskId=31)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/stage_2/task_31/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_31/)
+###### [任务三十一：表单（三）联动](http://ife.baidu.com/2016/task/detail?taskId=31)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/IFE2016/stage_2/task_31/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_2/task_31/)
 
 
 ***
 ### 第三阶段
 
-###### [任务三十七：UI组件之浮出层](http://ife.baidu.com/2016/task/detail?taskId=37)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/stage_3/task_37/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_3/task_37/)
+###### [任务三十七：UI组件之浮出层](http://ife.baidu.com/2016/task/detail?taskId=37)　|　[查看代码](https://github.com/lxchuan12/baidu_ife/blob/gh-pages/IFE2016/stage_3/task_37/index.html)　|　[查看demo](http://lxchuan12.github.io/baidu_ife/IFE2016/stage_3/task_37/)
