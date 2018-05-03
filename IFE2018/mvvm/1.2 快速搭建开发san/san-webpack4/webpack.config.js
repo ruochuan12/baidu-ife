@@ -3,13 +3,17 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FriendlyErrorsWebpackPlugin	=	require('friendly-errors-webpack-plugin');
+// https://www.npmjs.com/package/webpack-bundle-analyzer
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// webpack打包体积优化，详细分布查看插件 webpack-bundle-analyzer
+
 // 就在于会将打包到js里的css文件进行一个拆分，拆分CSS
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV === 'development';
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-module.exports = {
+const config = {
 	entry: './src/js/main.js',
 	output: {
 		filename: 'bundle.[hash:6].js',
@@ -17,6 +21,10 @@ module.exports = {
 	},
 	module: {
 		rules: [
+			{
+				test: /\.html$/,
+				loader: 'raw-loader'
+			},
 			// {
 			//     test: /\.css$/,
 			//     // 从右向左解析
@@ -58,25 +66,43 @@ module.exports = {
 						loader: 'style-loader'
 					},
 					{
-						loader: 'css-loader'
+						loader: 'css-loader',
+						options: {
+							sourceMap: true
+						}
 					},
 					{
-						loader: 'less-loader'
+						loader: 'less-loader',
+						options: {
+							sourceMap: true
+						}
 					},
 					{
-						loader: 'postcss-loader'
+						loader: 'postcss-loader',
+						options: {
+							sourceMap: true
+						}
 					}
 				] : ExtractTextWebpackPlugin.extract({
 					// 将css用link的方式引入就不再需要style-loader了
 					use: [
 						{
-							loader: 'css-loader'
+							loader: 'css-loader',
+							options: {
+								sourceMap: true
+							}
 						},
 						{
-							loader: 'less-loader'
+							loader: 'less-loader',
+							options: {
+								sourceMap: true
+							}
 						},
 						{
-							loader: 'postcss-loader'
+							loader: 'postcss-loader',
+							options: {
+								sourceMap: true
+							}
 						}
 					]
 				})
@@ -94,10 +120,12 @@ module.exports = {
 			//     ]
 			// },
 			{
-				test:/\.js$/,
+				test: /\.js$/,
 				use: 'babel-loader',
-				include: /src/,          // 只转化src目录下的js
-				exclude: /node_modules/  // 排除掉node_modules，优化打包速度
+				// 只转化src目录下的js
+				include: /src/,
+				// 排除掉node_modules，优化打包速度
+				exclude: /node_modules/
 			},
 			{
 				test: /\.js$/,
@@ -118,12 +146,23 @@ module.exports = {
 			// }
 		],
 	},
+	resolve: {
+		alias: {
+			san: isDev
+				? 'san/dist/san.dev.js'
+				: 'san/dist/san.js'
+		}
+	},
 	devServer: {
 		contentBase: './dist',
-		host: '0.0.0.0',      // 默认是localhost
-		port: 3000,             // 端口
-		// open: true,             // 自动打开浏览器
-		hot: true,               // 开启热更新
+		// 默认是localhost
+		host: '0.0.0.0',
+		// 端口
+		port: 3000,
+		// 自动打开浏览器
+		// open: true,
+		// 开启热更新
+		hot: true,
 		overlay: {
 			errors: true,
 			warnings: true,
@@ -151,9 +190,20 @@ module.exports = {
 		new webpack.NoEmitOnErrorsPlugin(),
 		// 拆分后会把css文件放到dist目录下的css/style.css
 		new ExtractTextWebpackPlugin('css/style.css'),
-		new FriendlyErrorsWebpackPlugin()
+		new FriendlyErrorsWebpackPlugin(),
 	],
 	mode: 'none'
 };
 
+if(isDev){
+	// do nothing
+}
+else{
+	config.plugins.push(
+		new BundleAnalyzerPlugin()
+	);
+}
+
 console.log('是否是开发环境：development', isDev);
+
+module.exports = config;

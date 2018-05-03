@@ -11,7 +11,8 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "bundle": "npx webpack ./src/js/main.js --output dist/bundle.js",
     "lint": "eslint --ext .js,.san src",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "analyz": "cross-env NODE_ENV=production npm_config_report=true npm run build"
   },
   "keywords": [],
   "author": "luoxiaochuan<lxchuan12@163.com>",
@@ -45,11 +46,13 @@
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
     "postcss-loader": "^2.1.4",
+    "raw-loader": "^0.5.1",
     "san-loader": "^0.0.7",
     "san-router": "^1.2.0",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.6.0",
+    "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^2.0.15",
     "webpack-dev-server": "^3.1.3"
   },
