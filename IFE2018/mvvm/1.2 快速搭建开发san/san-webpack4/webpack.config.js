@@ -10,9 +10,14 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 // 就在于会将打包到js里的css文件进行一个拆分，拆分CSS
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const os = require('os');
+// JS压缩插件
+const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
+// 是否打包分析
+const bundleAnalyzerReport = process.env.npm_config_report;
 
 const isDev = process.env.NODE_ENV === 'development';
-console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+console.log('当前运行环境', process.env.NODE_ENV);
 const config = {
 	entry: './src/js/main.js',
 	output: {
@@ -191,6 +196,23 @@ const config = {
 		// 拆分后会把css文件放到dist目录下的css/style.css
 		new ExtractTextWebpackPlugin('css/style.css'),
 		new FriendlyErrorsWebpackPlugin(),
+		// JS压缩
+		new UglifyjsWebpackPlugin({
+			uglifyOptions: {
+				ie8: true,
+				ecma: 8,
+				mangle: true,
+				output: { comments: false },
+				compress: {
+					warnings: false,
+					drop_debugger: true,
+					drop_console: true,
+				}
+			},
+			sourceMap: false,
+			cache: true,
+			parallel: os.cpus().length * 2
+		})
 	],
 	mode: 'none'
 };
@@ -199,11 +221,11 @@ if(isDev){
 	// do nothing
 }
 else{
-	config.plugins.push(
-		new BundleAnalyzerPlugin()
-	);
+	if(bundleAnalyzerReport){
+		config.plugins.push(
+			new BundleAnalyzerPlugin()
+		);
+	}
 }
-
-console.log('是否是开发环境：development', isDev);
 
 module.exports = config;
